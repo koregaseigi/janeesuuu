@@ -20,6 +20,12 @@ body {
   border-collapse: separate;
   border-spacing: 10px 5px;
 }
+#battleNumber {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+}
 
 #leftField, #rightField {
   width: 300px;
@@ -28,37 +34,56 @@ body {
   vertical-align: middle;
   cursor: pointer;
 }
+#leftField, #rightField {
+  border: none; /* 기존: 1px solid #000; */
+}
+
 .member-name {
   font-size: 18px;
+}
+.member-card {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .middleField {
   width: 150px;
-  height: 100px;
-  border: 1px solid #000;
+  height: 60px;
+  border: none;
+  border-radius: 12px;
+  background-color: #fbefff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  background-color: #f9f9f9;
-  cursor: pointer;
+  margin: 5px auto;
+  transition: background-color 0.2s ease;
+}
+.middleField:hover {
+  background-color: #f3dfff;
 }
 
+
 .img-box {
-  width: 400px;
-  height: auto;
+  width: 500px;
+  height: 500;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .img-box img {
-  height: auto;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   object-position: center;
@@ -70,7 +95,6 @@ body {
   word-break: break-all;
   margin-top: 2px;
 }
-
 .vote-button {
   font-size: 16px;
   padding: 10px 20px;
@@ -81,6 +105,7 @@ body {
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
   transition: all 0.2s ease-in-out;
 }
+
 .vote-button:hover {
   background-color: #ff99bb;
   transform: scale(1.05);
@@ -150,7 +175,7 @@ var namMember = new Array(
   "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/NAdBI/btrMIc1B93M/mwFzcUb6aXzEJyyl0r6ChK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/NAdBI/btrMIc1B93M/mwFzcUb6aXzEJyyl0r6ChK/img.gif</div><br><span class='member-name'>나가오 켄토</span></br>",
   "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/WBnYv/btquwodOUad/rgyDkJJYO9SrgAmDU2lqMK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/WBnYv/btquwodOUad/rgyDkJJYO9SrgAmDU2lqMK/img.gif</div><br><span class='member-name'>후지와라 죠이치로</span></br>",
   "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/dAJ8Ux/btqwAScjosY/Rakk5IXsKQ8ps90WKXKiUk/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/dAJ8Ux/btqwAScjosY/Rakk5IXsKQ8ps90WKXKiUk/img.gif</div><br><span class='member-name'>오오하시 카즈야</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/di5qov/btqGJvZamv5/oVWrAnKuS19tF8VmVBNcR1/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/di5qov/btqGJvZamv5/oVWrAnKuS19tF8VmVBNcR1/img.gif</div><br><span class='member-name'>카와시마 노에루</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/rLO6F/btqGGZ7YGe0/5DBu3KUW6kdz5IuZthb5Q0/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/rLO6F/btqGGZ7YGe0/5DBu3KUW6kdz5IuZthb5Q0/img.gif</div><br><span class='member-name'>카와시마 노에루</span></br>",
   "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/b6Xo8F/btqSGkmhR0i/gOkFfwinIRTUpMkYeNPsnK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/b6Xo8F/btqSGkmhR0i/gOkFfwinIRTUpMkYeNPsnK/img.gif</div><br><span class='member-name'>시메카케 류야</span></br>",
   "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/OwDRQ/btsgL9Ncf4O/mlkmj9TRQi0clShbZ7HPAK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/OwDRQ/btsgL9Ncf4O/mlkmj9TRQi0clShbZ7HPAK/img.gif</div><br><span class='member-name'>요시자와 시즈야</span></br>",
   "<div class='img-box'><img src='https://pbs.twimg.com/media/FxastrJaYAAaJP-?format=jpg&name=medium'></div><div class='img-url'>https://pbs.twimg.com/media/FxastrJaYAAaJP-?format=jpg&name=medium</div><br><span class='member-name'>나카무라 카이토</span></br>",
@@ -300,35 +325,46 @@ function showImage(){
 
   numQuestion++;
 }
+function toNameFace(n){
+  return `
+    <div class="member-card">
+      ${namMember[n]}
+      <div style="margin-top: 12px;">
+      </div>
+    </div>
+  `;
+}
 
-function toNameFace(n){ return namMember[n]; }
 </script>
 </head>
-
-<body>
+<body style="display: flex; flex-direction: column; align-items: center;">
 <table id="mainTable">
   <tr>
-    <td id="battleNumber" colspan="3" style="padding-bottom: 10px;"></td>
+     <td id="battleNumber" colspan="4"></td>
   </tr>
   <tr>
     <td id="leftField"></td>
     <td style="width: 20px;" colspan="2">
-    <div class="middleField" style="margin-bottom: 10px;" onclick="if(finishFlag==0)sortList(0);">둘다개별로...</div>
-    <div class="middleField" onclick="if(finishFlag==0)sortList(0);">둘다꽤나가능</div>
-    </td>
+      <div class="middleField" style="margin-bottom: 10px;" onclick="if(finishFlag==0)sortList(0);">🤢 둘 다 개별로</div>
+      <div class="middleField" onclick="if(finishFlag==0)sortList(0);">🔥 둘 다 꽤나 가능</div>
+          </td>
     <td id="rightField"></td>
   </tr>
 </table>
 
 <br><br>
 <div id="resultField" style="text-align:center;">
-  <p><font size="2">이상형월드컵임 사귄다면?이라는 질문을 해보세요</font></p>
-  <p><font size="2">꼭 지금 나이로 상상 할 필요는 없음 리즈시절 ㅇㅈ ㄱㄴ</font></p>
+  <p><font size="5">이상형월드컵임 사귄다면?이라는 질문을 해보세요</font></p>
+  <p><font size="5">꼭 지금 나이로 상상 할 필요는 없음 리즈시절 ㅇㅈ ㄱㄴ</font></p>
 </div>
 
 <script>
 const ENABLE_RANDOM = false;
 const RANDOM_SEED = 45; // 시드 고정
+const nameExceptions = {
+  "라울": "https://namu.wiki/w/라울(Snow%20Man)",      // 괄호 붙는 경우
+  "제시": "https://namu.wiki/w/제시(SixTONES)"  // 임의 예시
+};
 
 if (ENABLE_RANDOM) {
   shuffleArrayWithSeed(namMember, RANDOM_SEED);
@@ -336,6 +372,27 @@ if (ENABLE_RANDOM) {
 else {
     shuffleArray(namMember);
 }
+for (let i = 0; i < namMember.length; i++) {
+  namMember[i] = namMember[i].replace(
+    /<span class='member-name'>(.*?)<\/span>/,
+    function(_, fullName) {
+      const trimmedName = fullName.trim();
+      let url;
+
+      // 예외 케이스 우선 처리
+      if (nameExceptions.hasOwnProperty(trimmedName)) {
+        url = nameExceptions[trimmedName];
+      } else {
+        // 기본 링크 생성
+        url = `https://namu.wiki/w/${encodeURIComponent(trimmedName)}`;
+      }
+
+      return `<span class='member-name'><a href="${url}" target="_blank" style="color:blue;text-decoration:underline;">${trimmedName}</a></span>`;
+    }
+  );
+}
+
+
 initList();               // 정렬 구조 초기화
 showImage();              // 첫 비교 쌍 출력
 </script>
