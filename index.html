@@ -63,91 +63,105 @@ body {
   object-fit: cover;
   object-position: center;
 }
+.img-url {
+  font-size: 10px;
+  color: #666;
+  text-align: center;
+  word-break: break-all;
+  margin-top: 2px;
+}
+.vote-button {
+  font-size: 12px;
+  padding: 4px 10px;
+  cursor: pointer;
+  border: 1px solid #888;
+  background-color: #f0f0f0;
+}
 </style>
 
 <script>
 
 var namMember = new Array(
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99A00F3E5C28814831'></div><br><span class='member-name'>요코야마 유</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99D2E4445AF8531C11'></div><br><span class='member-name'>무라카미 싱고</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F2725374857C92B7935'></div><br><span class='member-name'>마루야마 류헤이</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F275B693957C597E022'></div><br><span class='member-name'>야스다 쇼타</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9909D5465A4DCB1B1E'></div><br><span class='member-name'>오쿠라 타다요시</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsKpf5%2Fbtq6Q6A61Nr%2FPVIrRAFXCLOxoflA4T3IA0%2Fimg.gif'></div><br><span class='member-name'>니시키도 료</span></br>",
-  "<div class='img-box'><img src='https://nationaltcc.org/wp-content/uploads/2021/02/9929e8bebd580f8e678ee5eb68d756f9.jpg'></div><br><span class='member-name'>시부타니 스바루</span></br>",
-  "<div class='img-box'><img src='https://file3.instiz.net/data/cached_img/upload/2018/08/23/2/8de59880c5c76bc78ee73a736c91d6e1.gif'></div><br><span class='member-name'>야마다 료스케</span></br>",
-  "<div class='img-box'><img src='https://i.namu.wiki/i/yhrJfVan6wqbStXhKDw23aukcG0Ta71iP9JYqH57P7f2AK7SKc9AT5ok3rgcjR-QSNhcsjeaHbDmTJ-UsgMmAw.gif'></div><br><span class='member-name'>치넨 유리</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/c6v7kn/btrRoqgfL45/0VQC1Fidc8kz8esD5pOSJ1/img.gif'></div><br><span class='member-name'>나카지마 유토</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/GwjdH/btqCzBWShjE/KrWZZz0A1k6HESPkja4PQk/img.gif'></div><br><span class='member-name'>아리오카 다이키</span></br>",
-  "<div class='img-box'><img src='https://i.namu.wiki/i/3Q0VBEyTss3REQj7yY3YSGa_OhAL1rDmTmhEfE1Ez6b-lVjjXgUsDSHd2KbQV4Y1gMj3R8JAh1xYMeD9jkQFzA.gif'></div><br><span class='member-name'>타카키 유야</span></br>",
-  "<div class='img-box'><img src='https://i.namu.wiki/i/f701qZiNCVsgZqoHqFnLbdxdX5p75OgtpvmbpjT25b1pq-1h3RG508t_ggTeGgA7xF4A8BAsde4L23ITfA2mww.gif'></div><br><span class='member-name'>이노오 케이</span></br>",
-  "<div class='img-box'><img src='https://img.tvreportcdn.de/cms-content/uploads/2024/08/14/c7e3a0a5-5b72-4c52-9124-46215c9a11ce.jpg'></div><br><span class='member-name'>야오토메 히카루</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/bWjqnb/btqG3kbWire/TWmkNdfX5eR0XZrscD7MMk/img.gif'></div><br><span class='member-name'>마스다 타카히사</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/DB5e6/btqG4bZ8Kli/N6J8O1UNGJlaD2sdDFg30K/img.gif'></div><br><span class='member-name'>코야마 케이치로</span></br>",
-  "<div class='img-box'><img src='https://www.nautiljon.com/images/more/05/08/456580.webp'></div><br><span class='member-name'>센가 켄토</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/7RBTX/btqIxZeKaOj/43fiCgy8rickZ3VZ8Hfk6K/img.gif'></div><br><span class='member-name'>미야타 토시야</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FnDgjv%2FbtquR2O9muS%2FtWonJUz1l9W661n6hEysT0%2Fimg.gif'></div><br><span class='member-name'>요코오 와타루</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/B6QA0/btquXuxj4XC/RYltFP38PrxNsQpCbtee8k/img.gif'></div><br><span class='member-name'>후지가야 타이스케</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99CFBD46602B913918'></div><br><span class='member-name'>타마모리 유타</span></br>",
-  "<div class='img-box'><img src='https://mblogthumb-phinf.pstatic.net/MjAxODA5MjdfMTEx/MDAxNTM4MDQ4ODQwOTAw.5J_OUWW3ebgmROmEY8qWxDfB8LON6_K6WljdsJhuz_gg.R7jV0eY20ZLdZawomxC_OSnsKQdLZjzbenu-GsvHN6Yg.GIF.luckyemma77/%EB%88%84%EC%BF%A0%EB%88%84%EC%BF%A0%EB%8B%88%EC%B9%B42.gif?type=w800'></div><br><span class='member-name'>니카이도 타카시</span></br>",
-  "<div class='img-box'><img src='https://imagedelivery.net/ISo6CJNY0e5_7mxZ2B_Wzg/bd3eb1c3-12b5-4273-ad41-f068a35fbd01/public?exp=1748807359&sig=3339f6f94babe01536826db57126a2de64b4f8437a6328ad88900ef466c13d18'></div><br><span class='member-name'>사토 쇼리</span></br>",
-  "<div class='img-box'><img src='https://pbs.twimg.com/media/Gi9J077a4AEKOgf?format=jpg&name=large'></div><br><span class='member-name'>키쿠치 후마</span></br>",
-  "<div class='img-box'><img src='https://pbs.twimg.com/media/F1HyrbsakAAiv3G?format=jpg&name=large'></div><br><span class='member-name'>마츠시마 소우</span></br>",
-  "<div class='img-box'><img src='https://img-store.theqoo.net/vKUwF.jpg'></div><br><span class='member-name'>테라니시 타쿠토</span></br>",
-  "<div class='img-box'><img src='https://img.jisin.jp/uploads/2025/04/hara_yoshitaka_insta_1_line_tw.jpg.webp'></div><br><span class='member-name'>하라 요시타카</span></br>",
-  "<div class='img-box'><img src='https://pbs.twimg.com/media/GsSbolmaMAEirTV?format=jpg&name=small'></div><br><span class='member-name'>하시모토 마사키</span></br>",
-  "<div class='img-box'><img src='https://img-cdn.theqoo.net/yUfMMb.jpg'></div><br><span class='member-name'>이노마타 슈토</span></br>",
-  "<div class='img-box'><img src='https://pbs.twimg.com/media/GjzQGawaoAAJ9PB.jpg'></div><br><span class='member-name'>시노즈카 타이키</span></br>",
-  "<div class='img-box'><img src='https://i.namu.wiki/i/kk-a6nYCSeKG9qo1mPAVUsMH5PoecLb6NIHalwQQcEHtFn7x-0PtWtTwlI1LuAyneIeAaqRorJQlaF1EYvvYEQ.gif'></div><br><span class='member-name'>시게오카 다이키</span></br>",
-  "<div class='img-box'><img src='https://img-store.theqoo.net/hkemJ.jpg'></div><br><span class='member-name'>키리야마 아키토</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/2Gkde/btqEZ96gHEF/FaBB5kg4zB6x6QEtPKAFxk/img.gif'></div><br><span class='member-name'>나카마 준타</span></br>",
-  "<div class='img-box'><img src='https://t1.daumcdn.net/cfile/tistory/9920FC4D5B938C401B'></div><br><span class='member-name'>카미야마 토모히로</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F999FA4385CBACF932B'></div><br><span class='member-name'>후지이 류세이</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F2268374258496B9237'></div><br><span class='member-name'>하마다 타카히로</span></br>",
-  "<div class='img-box'><img src='https://t1.daumcdn.net/cfile/tistory/99A862435DF2E89F2C'></div><br><span class='member-name'>코타키 노조무</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/ok0lF/btqC9OBpJUb/Lo3UbP6Z0V6qwzJfLObKa1/img.gif'></div><br><span class='member-name'>제시</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FIAxaR%2FbtqF1BOt570%2FfPVPXMRSOT072hFlNV9340%2Fimg.gif'></div><br><span class='member-name'>쿄모토 타이가</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbjsw5l%2FbtqJVpI1Ynj%2FWgMr0zShnkKwLtTdJNCsd0%2Fimg.gif'></div><br><span class='member-name'>마츠무라 호쿠토</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/cvh8o2/btqE00U6bxN/HtCgk6TarX3gbJfC5TCSKK/img.gif'></div><br><span class='member-name'>코우치 유고</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/bpqkWj/btrMrSvQbKx/khF3VvAMY9Ya5OspO8scTK/img.gif'></div><br><span class='member-name'>모리모토 신타로</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/HwUiP/btqF3TN2rAH/SF5k8oE3jOWT6AG6Kk1yNK/img.gif'></div><br><span class='member-name'>타나카 쥬리</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/blsOZH/btqQIaTK6wx/jyokPvfTdYLHhCXnFFL5KK/img.gif'></div><br><span class='member-name'>이와모토 히카루</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/yWyb6/btqMJFblVTj/3oDdInZyYzqYDKUrac8Cs1/img.gif'></div><br><span class='member-name'>후카자와 타츠야</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/db1cuc/btsBqMduW06/uYteuHLtwqokTLMvR0GcR0/img.gif'></div><br><span class='member-name'>라울</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/WhqEL/btsBMQlQHLp/B7xZXpmxXc70NTdEGIOcDK/img.gif'></div><br><span class='member-name'>와타나베 쇼타</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/czBtJu/btrwsJFOyYd/CzKrWIqQtMIZck4qEbyfpK/img.gif'></div><br><span class='member-name'>무카이 코지</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/ccgcCd/btqOlevtL7k/aTVDDYotePxe0PQutnKk4K/img.gif'></div><br><span class='member-name'>아베 료헤이</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/emLPBQ/btrN4xPTyUV/XJvskbDwPUP1fHN13M5i51/img.gif'></div><br><span class='member-name'>메구로 렌</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/mDJEn/btqN2VK4O9J/W2UNUFaexPEk7m6zV5kBI0/img.gif'></div><br><span class='member-name'>미야다테 료타</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/PIgiH/btqNXE3rHeD/hvXAv1qwqwAYLK3Pq850hk/img.gif'></div><br><span class='member-name'>사쿠마 다이스케</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/QVFjG/btrl0aNWJMp/tel0g8EEqVokzyQkBdexP0/img.gif'></div><br><span class='member-name'>니시하타 다이고</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/ubtyi/btrLiBNHg6q/ABO9Mlkx0Sa9r3S0MEsD8k/img.gif'></div><br><span class='member-name'>오오니시 류세이</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/ldqac/btrnDFFXBRd/ZW2IyPnN1tf2End3qQMqKk/img.gif'></div><br><span class='member-name'>미치에다 슌스케</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/c5pbfd/btrKVwOrH9R/Kto2vhYKacEXqJeTwOdyf1/img.gif'></div><br><span class='member-name'>타카하시 쿄헤이</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/NAdBI/btrMIc1B93M/mwFzcUb6aXzEJyyl0r6ChK/img.gif'></div><br><span class='member-name'>나가오 켄토</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/WBnYv/btquwodOUad/rgyDkJJYO9SrgAmDU2lqMK/img.gif'></div><br><span class='member-name'>후지와라 죠이치로</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/dAJ8Ux/btqwAScjosY/Rakk5IXsKQ8ps90WKXKiUk/img.gif'></div><br><span class='member-name'>오오하시 카즈야</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/di5qov/btqGJvZamv5/oVWrAnKuS19tF8VmVBNcR1/img.gif'></div><br><span class='member-name'>카와시마 노에루</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/b6Xo8F/btqSGkmhR0i/gOkFfwinIRTUpMkYeNPsnK/img.gif'></div><br><span class='member-name'>시메카케 류야</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/OwDRQ/btsgL9Ncf4O/mlkmj9TRQi0clShbZ7HPAK/img.gif'></div><br><span class='member-name'>요시자와 시즈야</span></br>",
-  "<div class='img-box'><img src='https://pbs.twimg.com/media/FxastrJaYAAaJP-?format=jpg&name=medium'></div><br><span class='member-name'>나카무라 카이토</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fydht2%2FbtqGusoojnY%2FXxXX9pCi9jHGyvsuf1lBm0%2Fimg.gif'></div><br><span class='member-name'>미야치카 카이토</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FA32Zc%2FbtqGmQjKusU%2F6wSDSY6CDHkq54NiHkR6QK%2Fimg.gif'></div><br><span class='member-name'>마츠쿠라 카이토</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/WmwPL/btqLGYbuSiZ/yIe4yeRUgJLwi28GywBYV0/img.gif'></div><br><span class='member-name'>마츠다 겐타</span></br>",
-  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99954D4E5EBD1DA03A'></div><br><span class='member-name'>마사카도 요시노리</span></br>",
-  "<div class='img-box'><img src='https://1.bp.blogspot.com/-86JklF5U_oQ/YGBwU-Fr3OI/AAAAAAAAD90/--pxNL5BFNYb328UBOZF57sRMKbpbbHdwCLcBGAsYHQ/s0/WIFE9_SUE1.gif'></div><br><span class='member-name'>스에자와 세이야</span></br>",
-  "<div class='img-box'><img src='https://pbs.twimg.com/media/F6bmKy2boAAvSew.jpg'></div><br><span class='member-name'>쿠사마 리챠드 케이타</span></br>",
-  "<div class='img-box'><img src='https://i.namu.wiki/i/l30_MTb2T2C_75mHXeplg0fTEtt55IR0p0D-q6kLdGpPjOUyLsd6c5TUT4AjGqIE2Jq8OIFbDwwyzJW4AN92sA.webp'></div><br><span class='member-name'>코지마 켄</span></br>",
-  "<div class='img-box'><img src='https://i.namu.wiki/i/3KsTi82YPFvObyu7wsEeeGfzH-meCICiVl5ZyOl7p-XcBjvxSAmCnyz0zHqmW7Mtf937MIPjnaGf9m_Tt65Fng.webp'></div><br><span class='member-name'>사노 마사야</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/cViDOP/btqBEAYE2Xp/OGyNkyApJ9NZEWAr8P4W91/img.gif'></div><br><span class='member-name'>아이바 마사키</span></br>",
-  "<div class='img-box'><img src='https://mblogthumb-phinf.pstatic.net/MjAxODA1MTdfODUg/MDAxNTI2NTI1NzI4MzUz.gRk5a69PRusCh-aNI19jvowTzp2oOQjfxSfAUD3deAog.li9mg8QnvkfL9d8lEdpudaZbpK50gxREJ5m1S5EZjc8g.GIF.kangon3104/IMG_5616.GIF?type=w966'></div><br><span class='member-name'>마츠모토 준</span></br>",
-  "<div class='img-box'><img src='https://mblogthumb-phinf.pstatic.net/MjAxNzA3MjhfMjcx/MDAxNTAxMjQzMjA4MjQy.WkkBl8YWCg99-Ff6JRpKA46wgo3-OvAB7uT9Qi8amoMg.fNy1ZGDmieM7mL5PqUK9sZzYeLO6ApaBXZOMD_VhGasg.GIF.o0617o/%ED%91%B811.gif?type=w800'></div><br><span class='member-name'>니노미야 카즈나리</span></br>",
-  "<div class='img-box'><img src='https://img-store.theqoo.net/zaflq.jpg'></div><br><span class='member-name'>오노 사토시</span></br>",
-  "<div class='img-box'><img src='https://pbs.twimg.com/media/Gmk6-mLaEAUTNb_?format=jpg&name=large'></div><br><span class='member-name'>나가세 렌</span></br>",
-  "<div class='img-box'><img src='https://pbs.twimg.com/media/EnRiDJjUcAMliHi?format=jpg&name=small'></div><br><span class='member-name'>사쿠라이 쇼</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/cMb20o/btqOuIcSseA/wPXLpKKf9bAmPYYD6k9XJk/img.gif'></div><br><span class='member-name'>타카하시 카이토</span></br>",
-  "<div class='img-box'><img src='https://i.namu.wiki/i/HndK3MJDkI_DcYHyHLsCtbohfWZUD9MEdBclQzxQnInpMHtzU8m0JyRSk84bKeWLqL6wrWrLpo7vqFMqDraSoA.gif'></div><br><span class='member-name'>나카지마 켄토</span></br>",
-  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/cepTtW/btq9taglQLU/qvkeWOm1weblRm1TL0hrI0/img.jpg'></div><br><span class='member-name'>카자마 슌스케</span></br>"
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99A00F3E5C28814831'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99A00F3E5C28814831</div><br><span class='member-name'>요코야마 유</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99D2E4445AF8531C11'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99D2E4445AF8531C11</div><br><span class='member-name'>무라카미 싱고</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F2725374857C92B7935'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F2725374857C92B7935</div><br><span class='member-name'>마루야마 류헤이</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F275B693957C597E022'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F275B693957C597E022</div><br><span class='member-name'>야스다 쇼타</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9909D5465A4DCB1B1E'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9909D5465A4DCB1B1E</div><br><span class='member-name'>오쿠라 타다요시</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsKpf5%2Fbtq6Q6A61Nr%2FPVIrRAFXCLOxoflA4T3IA0%2Fimg.gif'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsKpf5%2Fbtq6Q6A61Nr%2FPVIrRAFXCLOxoflA4T3IA0%2Fimg.gif</div><br><span class='member-name'>니시키도 료</span></br>",
+  "<div class='img-box'><img src='https://nationaltcc.org/wp-content/uploads/2021/02/9929e8bebd580f8e678ee5eb68d756f9.jpg'></div><div class='img-url'>https://nationaltcc.org/wp-content/uploads/2021/02/9929e8bebd580f8e678ee5eb68d756f9.jpg</div><br><span class='member-name'>시부타니 스바루</span></br>",
+  "<div class='img-box'><img src='https://file3.instiz.net/data/cached_img/upload/2018/08/23/2/8de59880c5c76bc78ee73a736c91d6e1.gif'></div><div class='img-url'>https://file3.instiz.net/data/cached_img/upload/2018/08/23/2/8de59880c5c76bc78ee73a736c91d6e1.gif</div><br><span class='member-name'>야마다 료스케</span></br>",
+  "<div class='img-box'><img src='https://i.namu.wiki/i/yhrJfVan6wqbStXhKDw23aukcG0Ta71iP9JYqH57P7f2AK7SKc9AT5ok3rgcjR-QSNhcsjeaHbDmTJ-UsgMmAw.gif'></div><div class='img-url'>https://i.namu.wiki/i/yhrJfVan6wqbStXhKDw23aukcG0Ta71iP9JYqH57P7f2AK7SKc9AT5ok3rgcjR-QSNhcsjeaHbDmTJ-UsgMmAw.gif</div><br><span class='member-name'>치넨 유리</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/c6v7kn/btrRoqgfL45/0VQC1Fidc8kz8esD5pOSJ1/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/c6v7kn/btrRoqgfL45/0VQC1Fidc8kz8esD5pOSJ1/img.gif</div><br><span class='member-name'>나카지마 유토</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/GwjdH/btqCzBWShjE/KrWZZz0A1k6HESPkja4PQk/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/GwjdH/btqCzBWShjE/KrWZZz0A1k6HESPkja4PQk/img.gif</div><br><span class='member-name'>아리오카 다이키</span></br>",
+  "<div class='img-box'><img src='https://i.namu.wiki/i/3Q0VBEyTss3REQj7yY3YSGa_OhAL1rDmTmhEfE1Ez6b-lVjjXgUsDSHd2KbQV4Y1gMj3R8JAh1xYMeD9jkQFzA.gif'></div><div class='img-url'>https://i.namu.wiki/i/3Q0VBEyTss3REQj7yY3YSGa_OhAL1rDmTmhEfE1Ez6b-lVjjXgUsDSHd2KbQV4Y1gMj3R8JAh1xYMeD9jkQFzA.gif</div><br><span class='member-name'>타카키 유야</span></br>",
+  "<div class='img-box'><img src='https://i.namu.wiki/i/f701qZiNCVsgZqoHqFnLbdxdX5p75OgtpvmbpjT25b1pq-1h3RG508t_ggTeGgA7xF4A8BAsde4L23ITfA2mww.gif'></div><div class='img-url'>https://i.namu.wiki/i/f701qZiNCVsgZqoHqFnLbdxdX5p75OgtpvmbpjT25b1pq-1h3RG508t_ggTeGgA7xF4A8BAsde4L23ITfA2mww.gif</div><br><span class='member-name'>이노오 케이</span></br>",
+  "<div class='img-box'><img src='https://img.tvreportcdn.de/cms-content/uploads/2024/08/14/c7e3a0a5-5b72-4c52-9124-46215c9a11ce.jpg'></div><div class='img-url'>https://img.tvreportcdn.de/cms-content/uploads/2024/08/14/c7e3a0a5-5b72-4c52-9124-46215c9a11ce.jpg</div><br><span class='member-name'>야오토메 히카루</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/bWjqnb/btqG3kbWire/TWmkNdfX5eR0XZrscD7MMk/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/bWjqnb/btqG3kbWire/TWmkNdfX5eR0XZrscD7MMk/img.gif</div><br><span class='member-name'>마스다 타카히사</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/DB5e6/btqG4bZ8Kli/N6J8O1UNGJlaD2sdDFg30K/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/DB5e6/btqG4bZ8Kli/N6J8O1UNGJlaD2sdDFg30K/img.gif</div><br><span class='member-name'>코야마 케이치로</span></br>",
+  "<div class='img-box'><img src='https://www.nautiljon.com/images/more/05/08/456580.webp'></div><div class='img-url'>https://www.nautiljon.com/images/more/05/08/456580.webp</div><br><span class='member-name'>센가 켄토</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/7RBTX/btqIxZeKaOj/43fiCgy8rickZ3VZ8Hfk6K/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/7RBTX/btqIxZeKaOj/43fiCgy8rickZ3VZ8Hfk6K/img.gif</div><br><span class='member-name'>미야타 토시야</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FnDgjv%2FbtquR2O9muS%2FtWonJUz1l9W661n6hEysT0%2Fimg.gif'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FnDgjv%2FbtquR2O9muS%2FtWonJUz1l9W661n6hEysT0%2Fimg.gif</div><br><span class='member-name'>요코오 와타루</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/B6QA0/btquXuxj4XC/RYltFP38PrxNsQpCbtee8k/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/B6QA0/btquXuxj4XC/RYltFP38PrxNsQpCbtee8k/img.gif</div><br><span class='member-name'>후지가야 타이스케</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99CFBD46602B913918'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99CFBD46602B913918</div><br><span class='member-name'>타마모리 유타</span></br>",
+  "<div class='img-box'><img src='https://mblogthumb-phinf.pstatic.net/MjAxODA5MjdfMTEx/MDAxNTM4MDQ4ODQwOTAw.5J_OUWW3ebgmROmEY8qWxDfB8LON6_K6WljdsJhuz_gg.R7jV0eY20ZLdZawomxC_OSnsKQdLZjzbenu-GsvHN6Yg.GIF.luckyemma77/%EB%88%84%EC%BF%A0%EB%88%84%EC%BF%A0%EB%8B%88%EC%B9%B42.gif?type=w800'></div><div class='img-url'>https://mblogthumb-phinf.pstatic.net/MjAxODA5MjdfMTEx/MDAxNTM4MDQ4ODQwOTAw.5J_OUWW3ebgmROmEY8qWxDfB8LON6_K6WljdsJhuz_gg.R7jV0eY20ZLdZawomxC_OSnsKQdLZjzbenu-GsvHN6Yg.GIF.luckyemma77/%EB%88%84%EC%BF%A0%EB%88%84%EC%BF%A0%EB%8B%88%EC%B9%B42.gif?type=w800</div><br><span class='member-name'>니카이도 타카시</span></br>",
+  "<div class='img-box'><img src='https://imagedelivery.net/ISo6CJNY0e5_7mxZ2B_Wzg/bd3eb1c3-12b5-4273-ad41-f068a35fbd01/public?exp=1748807359&sig=3339f6f94babe01536826db57126a2de64b4f8437a6328ad88900ef466c13d18'></div><div class='img-url'>https://imagedelivery.net/ISo6CJNY0e5_7mxZ2B_Wzg/bd3eb1c3-12b5-4273-ad41-f068a35fbd01/public?exp=1748807359&sig=3339f6f94babe01536826db57126a2de64b4f8437a6328ad88900ef466c13d18</div><br><span class='member-name'>사토 쇼리</span></br>",
+  "<div class='img-box'><img src='https://pbs.twimg.com/media/Gi9J077a4AEKOgf?format=jpg&name=large'></div><div class='img-url'>https://pbs.twimg.com/media/Gi9J077a4AEKOgf?format=jpg&name=large</div><br><span class='member-name'>키쿠치 후마</span></br>",
+  "<div class='img-box'><img src='https://pbs.twimg.com/media/F1HyrbsakAAiv3G?format=jpg&name=large'></div><div class='img-url'>https://pbs.twimg.com/media/F1HyrbsakAAiv3G?format=jpg&name=large</div><br><span class='member-name'>마츠시마 소우</span></br>",
+  "<div class='img-box'><img src='https://img-store.theqoo.net/vKUwF.jpg'></div><div class='img-url'>https://img-store.theqoo.net/vKUwF.jpg</div><br><span class='member-name'>테라니시 타쿠토</span></br>",
+  "<div class='img-box'><img src='https://img.jisin.jp/uploads/2025/04/hara_yoshitaka_insta_1_line_tw.jpg.webp'></div><div class='img-url'>https://img.jisin.jp/uploads/2025/04/hara_yoshitaka_insta_1_line_tw.jpg.webp</div><br><span class='member-name'>하라 요시타카</span></br>",
+  "<div class='img-box'><img src='https://pbs.twimg.com/media/GsSbolmaMAEirTV?format=jpg&name=small'></div><div class='img-url'>https://pbs.twimg.com/media/GsSbolmaMAEirTV?format=jpg&name=small</div><br><span class='member-name'>하시모토 마사키</span></br>",
+  "<div class='img-box'><img src='https://img-cdn.theqoo.net/yUfMMb.jpg'></div><div class='img-url'>https://img-cdn.theqoo.net/yUfMMb.jpg</div><br><span class='member-name'>이노마타 슈토</span></br>",
+  "<div class='img-box'><img src='https://pbs.twimg.com/media/GjzQGawaoAAJ9PB.jpg'></div><div class='img-url'>https://pbs.twimg.com/media/GjzQGawaoAAJ9PB.jpg</div><br><span class='member-name'>시노즈카 타이키</span></br>",
+  "<div class='img-box'><img src='https://i.namu.wiki/i/kk-a6nYCSeKG9qo1mPAVUsMH5PoecLb6NIHalwQQcEHtFn7x-0PtWtTwlI1LuAyneIeAaqRorJQlaF1EYvvYEQ.gif'></div><div class='img-url'>https://i.namu.wiki/i/kk-a6nYCSeKG9qo1mPAVUsMH5PoecLb6NIHalwQQcEHtFn7x-0PtWtTwlI1LuAyneIeAaqRorJQlaF1EYvvYEQ.gif</div><br><span class='member-name'>시게오카 다이키</span></br>",
+  "<div class='img-box'><img src='https://img-store.theqoo.net/hkemJ.jpg'></div><div class='img-url'>https://img-store.theqoo.net/hkemJ.jpg</div><br><span class='member-name'>키리야마 아키토</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/2Gkde/btqEZ96gHEF/FaBB5kg4zB6x6QEtPKAFxk/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/2Gkde/btqEZ96gHEF/FaBB5kg4zB6x6QEtPKAFxk/img.gif</div><br><span class='member-name'>나카마 준타</span></br>",
+  "<div class='img-box'><img src='https://t1.daumcdn.net/cfile/tistory/9920FC4D5B938C401B'></div><div class='img-url'>https://t1.daumcdn.net/cfile/tistory/9920FC4D5B938C401B</div><br><span class='member-name'>카미야마 토모히로</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F999FA4385CBACF932B'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F999FA4385CBACF932B</div><br><span class='member-name'>후지이 류세이</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F2268374258496B9237'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F2268374258496B9237</div><br><span class='member-name'>하마다 타카히로</span></br>",
+  "<div class='img-box'><img src='https://t1.daumcdn.net/cfile/tistory/99A862435DF2E89F2C'></div><div class='img-url'>https://t1.daumcdn.net/cfile/tistory/99A862435DF2E89F2C</div><br><span class='member-name'>코타키 노조무</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/ok0lF/btqC9OBpJUb/Lo3UbP6Z0V6qwzJfLObKa1/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/ok0lF/btqC9OBpJUb/Lo3UbP6Z0V6qwzJfLObKa1/img.gif</div><br><span class='member-name'>제시</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FIAxaR%2FbtqF1BOt570%2FfPVPXMRSOT072hFlNV9340%2Fimg.gif'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FIAxaR%2FbtqF1BOt570%2FfPVPXMRSOT072hFlNV9340%2Fimg.gif</div><br><span class='member-name'>쿄모토 타이가</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbjsw5l%2FbtqJVpI1Ynj%2FWgMr0zShnkKwLtTdJNCsd0%2Fimg.gif'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbjsw5l%2FbtqJVpI1Ynj%2FWgMr0zShnkKwLtTdJNCsd0%2Fimg.gif</div><br><span class='member-name'>마츠무라 호쿠토</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/cvh8o2/btqE00U6bxN/HtCgk6TarX3gbJfC5TCSKK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/cvh8o2/btqE00U6bxN/HtCgk6TarX3gbJfC5TCSKK/img.gif</div><br><span class='member-name'>코우치 유고</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/bpqkWj/btrMrSvQbKx/khF3VvAMY9Ya5OspO8scTK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/bpqkWj/btrMrSvQbKx/khF3VvAMY9Ya5OspO8scTK/img.gif</div><br><span class='member-name'>모리모토 신타로</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/HwUiP/btqF3TN2rAH/SF5k8oE3jOWT6AG6Kk1yNK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/HwUiP/btqF3TN2rAH/SF5k8oE3jOWT6AG6Kk1yNK/img.gif</div><br><span class='member-name'>타나카 쥬리</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/blsOZH/btqQIaTK6wx/jyokPvfTdYLHhCXnFFL5KK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/blsOZH/btqQIaTK6wx/jyokPvfTdYLHhCXnFFL5KK/img.gif</div><br><span class='member-name'>이와모토 히카루</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/yWyb6/btqMJFblVTj/3oDdInZyYzqYDKUrac8Cs1/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/yWyb6/btqMJFblVTj/3oDdInZyYzqYDKUrac8Cs1/img.gif</div><br><span class='member-name'>후카자와 타츠야</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/db1cuc/btsBqMduW06/uYteuHLtwqokTLMvR0GcR0/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/db1cuc/btsBqMduW06/uYteuHLtwqokTLMvR0GcR0/img.gif</div><br><span class='member-name'>라울</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/WhqEL/btsBMQlQHLp/B7xZXpmxXc70NTdEGIOcDK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/WhqEL/btsBMQlQHLp/B7xZXpmxXc70NTdEGIOcDK/img.gif</div><br><span class='member-name'>와타나베 쇼타</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/czBtJu/btrwsJFOyYd/CzKrWIqQtMIZck4qEbyfpK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/czBtJu/btrwsJFOyYd/CzKrWIqQtMIZck4qEbyfpK/img.gif</div><br><span class='member-name'>무카이 코지</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/ccgcCd/btqOlevtL7k/aTVDDYotePxe0PQutnKk4K/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/ccgcCd/btqOlevtL7k/aTVDDYotePxe0PQutnKk4K/img.gif</div><br><span class='member-name'>아베 료헤이</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/emLPBQ/btrN4xPTyUV/XJvskbDwPUP1fHN13M5i51/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/emLPBQ/btrN4xPTyUV/XJvskbDwPUP1fHN13M5i51/img.gif</div><br><span class='member-name'>메구로 렌</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/mDJEn/btqN2VK4O9J/W2UNUFaexPEk7m6zV5kBI0/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/mDJEn/btqN2VK4O9J/W2UNUFaexPEk7m6zV5kBI0/img.gif</div><br><span class='member-name'>미야다테 료타</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/PIgiH/btqNXE3rHeD/hvXAv1qwqwAYLK3Pq850hk/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/PIgiH/btqNXE3rHeD/hvXAv1qwqwAYLK3Pq850hk/img.gif</div><br><span class='member-name'>사쿠마 다이스케</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/QVFjG/btrl0aNWJMp/tel0g8EEqVokzyQkBdexP0/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/QVFjG/btrl0aNWJMp/tel0g8EEqVokzyQkBdexP0/img.gif</div><br><span class='member-name'>니시하타 다이고</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/ubtyi/btrLiBNHg6q/ABO9Mlkx0Sa9r3S0MEsD8k/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/ubtyi/btrLiBNHg6q/ABO9Mlkx0Sa9r3S0MEsD8k/img.gif</div><br><span class='member-name'>오오니시 류세이</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/ldqac/btrnDFFXBRd/ZW2IyPnN1tf2End3qQMqKk/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/ldqac/btrnDFFXBRd/ZW2IyPnN1tf2End3qQMqKk/img.gif</div><br><span class='member-name'>미치에다 슌스케</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/c5pbfd/btrKVwOrH9R/Kto2vhYKacEXqJeTwOdyf1/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/c5pbfd/btrKVwOrH9R/Kto2vhYKacEXqJeTwOdyf1/img.gif</div><br><span class='member-name'>타카하시 쿄헤이</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/NAdBI/btrMIc1B93M/mwFzcUb6aXzEJyyl0r6ChK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/NAdBI/btrMIc1B93M/mwFzcUb6aXzEJyyl0r6ChK/img.gif</div><br><span class='member-name'>나가오 켄토</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/WBnYv/btquwodOUad/rgyDkJJYO9SrgAmDU2lqMK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/WBnYv/btquwodOUad/rgyDkJJYO9SrgAmDU2lqMK/img.gif</div><br><span class='member-name'>후지와라 죠이치로</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/dAJ8Ux/btqwAScjosY/Rakk5IXsKQ8ps90WKXKiUk/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/dAJ8Ux/btqwAScjosY/Rakk5IXsKQ8ps90WKXKiUk/img.gif</div><br><span class='member-name'>오오하시 카즈야</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/di5qov/btqGJvZamv5/oVWrAnKuS19tF8VmVBNcR1/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/di5qov/btqGJvZamv5/oVWrAnKuS19tF8VmVBNcR1/img.gif</div><br><span class='member-name'>카와시마 노에루</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/b6Xo8F/btqSGkmhR0i/gOkFfwinIRTUpMkYeNPsnK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/b6Xo8F/btqSGkmhR0i/gOkFfwinIRTUpMkYeNPsnK/img.gif</div><br><span class='member-name'>시메카케 류야</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/OwDRQ/btsgL9Ncf4O/mlkmj9TRQi0clShbZ7HPAK/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/OwDRQ/btsgL9Ncf4O/mlkmj9TRQi0clShbZ7HPAK/img.gif</div><br><span class='member-name'>요시자와 시즈야</span></br>",
+  "<div class='img-box'><img src='https://pbs.twimg.com/media/FxastrJaYAAaJP-?format=jpg&name=medium'></div><div class='img-url'>https://pbs.twimg.com/media/FxastrJaYAAaJP-?format=jpg&name=medium</div><br><span class='member-name'>나카무라 카이토</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fydht2%2FbtqGusoojnY%2FXxXX9pCi9jHGyvsuf1lBm0%2Fimg.gif'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fydht2%2FbtqGusoojnY%2FXxXX9pCi9jHGyvsuf1lBm0%2Fimg.gif</div><br><span class='member-name'>미야치카 카이토</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FA32Zc%2FbtqGmQjKusU%2F6wSDSY6CDHkq54NiHkR6QK%2Fimg.gif'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FA32Zc%2FbtqGmQjKusU%2F6wSDSY6CDHkq54NiHkR6QK%2Fimg.gif</div><br><span class='member-name'>마츠쿠라 카이토</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/WmwPL/btqLGYbuSiZ/yIe4yeRUgJLwi28GywBYV0/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/WmwPL/btqLGYbuSiZ/yIe4yeRUgJLwi28GywBYV0/img.gif</div><br><span class='member-name'>마츠다 겐타</span></br>",
+  "<div class='img-box'><img src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99954D4E5EBD1DA03A'></div><div class='img-url'>https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99954D4E5EBD1DA03A</div><br><span class='member-name'>마사카도 요시노리</span></br>",
+  "<div class='img-box'><img src='https://1.bp.blogspot.com/-86JklF5U_oQ/YGBwU-Fr3OI/AAAAAAAAD90/--pxNL5BFNYb328UBOZF57sRMKbpbbHdwCLcBGAsYHQ/s0/WIFE9_SUE1.gif'></div><div class='img-url'>https://1.bp.blogspot.com/-86JklF5U_oQ/YGBwU-Fr3OI/AAAAAAAAD90/--pxNL5BFNYb328UBOZF57sRMKbpbbHdwCLcBGAsYHQ/s0/WIFE9_SUE1.gif</div><br><span class='member-name'>스에자와 세이야</span></br>",
+  "<div class='img-box'><img src='https://pbs.twimg.com/media/F6bmKy2boAAvSew.jpg'></div><div class='img-url'>https://pbs.twimg.com/media/F6bmKy2boAAvSew.jpg</div><br><span class='member-name'>쿠사마 리챠드 케이타</span></br>",
+  "<div class='img-box'><img src='https://i.namu.wiki/i/l30_MTb2T2C_75mHXeplg0fTEtt55IR0p0D-q6kLdGpPjOUyLsd6c5TUT4AjGqIE2Jq8OIFbDwwyzJW4AN92sA.webp'></div><div class='img-url'>https://i.namu.wiki/i/l30_MTb2T2C_75mHXeplg0fTEtt55IR0p0D-q6kLdGpPjOUyLsd6c5TUT4AjGqIE2Jq8OIFbDwwyzJW4AN92sA.webp</div><br><span class='member-name'>코지마 켄</span></br>",
+  "<div class='img-box'><img src='https://i.namu.wiki/i/3KsTi82YPFvObyu7wsEeeGfzH-meCICiVl5ZyOl7p-XcBjvxSAmCnyz0zHqmW7Mtf937MIPjnaGf9m_Tt65Fng.webp'></div><div class='img-url'>https://i.namu.wiki/i/3KsTi82YPFvObyu7wsEeeGfzH-meCICiVl5ZyOl7p-XcBjvxSAmCnyz0zHqmW7Mtf937MIPjnaGf9m_Tt65Fng.webp</div><br><span class='member-name'>사노 마사야</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/cViDOP/btqBEAYE2Xp/OGyNkyApJ9NZEWAr8P4W91/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/cViDOP/btqBEAYE2Xp/OGyNkyApJ9NZEWAr8P4W91/img.gif</div><br><span class='member-name'>아이바 마사키</span></br>",
+  "<div class='img-box'><img src='https://mblogthumb-phinf.pstatic.net/MjAxODA1MTdfODUg/MDAxNTI2NTI1NzI4MzUz.gRk5a69PRusCh-aNI19jvowTzp2oOQjfxSfAUD3deAog.li9mg8QnvkfL9d8lEdpudaZbpK50gxREJ5m1S5EZjc8g.GIF.kangon3104/IMG_5616.GIF?type=w966'></div><div class='img-url'>https://mblogthumb-phinf.pstatic.net/MjAxODA1MTdfODUg/MDAxNTI2NTI1NzI4MzUz.gRk5a69PRusCh-aNI19jvowTzp2oOQjfxSfAUD3deAog.li9mg8QnvkfL9d8lEdpudaZbpK50gxREJ5m1S5EZjc8g.GIF.kangon3104/IMG_5616.GIF?type=w966</div><br><span class='member-name'>마츠모토 준</span></br>",
+  "<div class='img-box'><img src='https://mblogthumb-phinf.pstatic.net/MjAxNzA3MjhfMjcx/MDAxNTAxMjQzMjA4MjQy.WkkBl8YWCg99-Ff6JRpKA46wgo3-OvAB7uT9Qi8amoMg.fNy1ZGDmieM7mL5PqUK9sZzYeLO6ApaBXZOMD_VhGasg.GIF.o0617o/%ED%91%B811.gif?type=w800'></div><div class='img-url'>https://mblogthumb-phinf.pstatic.net/MjAxNzA3MjhfMjcx/MDAxNTAxMjQzMjA4MjQy.WkkBl8YWCg99-Ff6JRpKA46wgo3-OvAB7uT9Qi8amoMg.fNy1ZGDmieM7mL5PqUK9sZzYeLO6ApaBXZOMD_VhGasg.GIF.o0617o/%ED%91%B811.gif?type=w800</div><br><span class='member-name'>니노미야 카즈나리</span></br>",
+  "<div class='img-box'><img src='https://img-store.theqoo.net/zaflq.jpg'></div><div class='img-url'>https://img-store.theqoo.net/zaflq.jpg</div><br><span class='member-name'>오노 사토시</span></br>",
+  "<div class='img-box'><img src='https://pbs.twimg.com/media/Gmk6-mLaEAUTNb_?format=jpg&name=large'></div><div class='img-url'>https://pbs.twimg.com/media/Gmk6-mLaEAUTNb_?format=jpg&name=large</div><br><span class='member-name'>나가세 렌</span></br>",
+  "<div class='img-box'><img src='https://pbs.twimg.com/media/EnRiDJjUcAMliHi?format=jpg&name=small'></div><div class='img-url'>https://pbs.twimg.com/media/EnRiDJjUcAMliHi?format=jpg&name=small</div><br><span class='member-name'>사쿠라이 쇼</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/cMb20o/btqOuIcSseA/wPXLpKKf9bAmPYYD6k9XJk/img.gif'></div><div class='img-url'>https://blog.kakaocdn.net/dn/cMb20o/btqOuIcSseA/wPXLpKKf9bAmPYYD6k9XJk/img.gif</div><br><span class='member-name'>타카하시 카이토</span></br>",
+  "<div class='img-box'><img src='https://i.namu.wiki/i/HndK3MJDkI_DcYHyHLsCtbohfWZUD9MEdBclQzxQnInpMHtzU8m0JyRSk84bKeWLqL6wrWrLpo7vqFMqDraSoA.gif'></div><div class='img-url'>https://i.namu.wiki/i/HndK3MJDkI_DcYHyHLsCtbohfWZUD9MEdBclQzxQnInpMHtzU8m0JyRSk84bKeWLqL6wrWrLpo7vqFMqDraSoA.gif</div><br><span class='member-name'>나카지마 켄토</span></br>",
+  "<div class='img-box'><img src='https://blog.kakaocdn.net/dn/cepTtW/btq9taglQLU/qvkeWOm1weblRm1TL0hrI0/img.jpg'></div><div class='img-url'>https://blog.kakaocdn.net/dn/cepTtW/btq9taglQLU/qvkeWOm1weblRm1TL0hrI0/img.jpg</div><br><span class='member-name'>카자마 슌스케</span></br>"
 );
 
 function shuffleArray(array) {
@@ -263,9 +277,18 @@ function showResult(){
 }
 
 function showImage(){
-  document.getElementById("battleNumber").innerHTML = "Battle No."+numQuestion+"<br>"+Math.floor(finishSize*100/totalSize)+"% sorted.";
-  document.getElementById("leftField").innerHTML = toNameFace(lstMember[cmp1][head1]);
-  document.getElementById("rightField").innerHTML = toNameFace(lstMember[cmp2][head2]);
+  document.getElementById("battleNumber").innerHTML =
+    "Battle No." + numQuestion + "<br>" + Math.floor(finishSize * 100 / totalSize) + "% sorted.";
+
+  let leftHTML = toNameFace(lstMember[cmp1][head1]) +
+    "<div style='margin-top:8px;'><button onclick='sortList(-1)' class='vote-button'>← 선택</button></div>";
+
+  let rightHTML = toNameFace(lstMember[cmp2][head2]) +
+    "<div style='margin-top:8px;'><button onclick='sortList(1)' class='vote-button'>선택 →</button></div>";
+
+  document.getElementById("leftField").innerHTML = leftHTML;
+  document.getElementById("rightField").innerHTML = rightHTML;
+
   numQuestion++;
 }
 
@@ -279,12 +302,12 @@ function toNameFace(n){ return namMember[n]; }
     <td id="battleNumber" colspan="3" style="padding-bottom: 10px;"></td>
   </tr>
   <tr>
-    <td id="leftField" onclick="if(finishFlag==0)sortList(-1);"></td>
+    <td id="leftField"></td>
     <td style="width: 20px;" colspan="2">
     <div class="middleField" style="margin-bottom: 10px;" onclick="if(finishFlag==0)sortList(0);">둘다개별로...</div>
     <div class="middleField" onclick="if(finishFlag==0)sortList(0);">둘다꽤나가능</div>
     </td>
-    <td id="rightField" onclick="if(finishFlag==0)sortList(1);"></td>
+    <td id="rightField"></td>
   </tr>
 </table>
 
