@@ -26,10 +26,10 @@ body {
 }
 
 #leftField, #rightField {
-  width: 350px; 
-  height: auto; 
+  width: 350px;
+  height: auto;
   border: none;
-  vertical-align: top; 
+  vertical-align: top;
   padding: 10px;
 }
 
@@ -70,15 +70,15 @@ body {
 }
 
 .img-box {
-  width: 300px; 
-  height: 300px; 
+  width: 300px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
-  margin: 0 auto 10px auto; 
-  overflow: hidden; 
-  cursor: pointer; 
+  margin: 0 auto 10px auto;
+  overflow: hidden;
+  cursor: pointer;
   border: 1px solid #ccc;
 }
 
@@ -88,23 +88,23 @@ body {
   object-fit: cover;
   object-position: center;
 }
-.img-url-display { 
+.img-url-display {
   font-size: 10px;
   color: #666;
   text-align: center;
   word-break: break-all;
   margin-top: 5px;
-  height: 2.5em; 
-  overflow-y: auto; 
+  height: 2.5em;
+  overflow-y: auto;
 }
 .button-container {
   margin-top: 15px;
   display: flex;
   justify-content: center;
-  gap: 10px; 
+  gap: 10px;
 }
 .vote-button, .exclude-button {
-  font-size: 14px; 
+  font-size: 14px;
   padding: 8px 15px;
   cursor: pointer;
   border: none;
@@ -130,8 +130,8 @@ body {
 }
 
 #resultField table {
-    width: auto; 
-    max-width: 600px; 
+    width: auto;
+    max-width: 600px;
     font-size:12px;
     margin:auto;
     border:1px solid #000;
@@ -152,7 +152,7 @@ body {
     width: 50px;
 }
 #resultField .result-name-cell {
-    word-break: keep-all; 
+    word-break: keep-all;
 }
 #resultField .img-box {
     width: 50px;
@@ -165,13 +165,13 @@ body {
     object-fit: cover;
 }
 #resultField .img-url-display {
-    display: none; 
+    display: none;
 }
 #resultField .member-name {
     font-size: 14px;
 }
 #resultField br {
-    display: none; 
+    display: none;
 }
 #excludedNamesList { /* Style for excluded names list */
     margin-top: 20px;
@@ -266,11 +266,6 @@ var allMembers = [
   { id: 79, nameStr: "카자마 슌스케", images: ['https://blog.kakaocdn.net/dn/cepTtW/btq9taglQLU/qvkeWOm1weblRm1TL0hrI0/img.jpg'], imageDisplayUrls: ['https://blog.kakaocdn.net/dn/cepTtW/btq9taglQLU/qvkeWOm1weblRm1TL0hrI0/img.jpg'], currentImageIndex: 0, isExcluded: false }
 ];
 
-<script>
-var allMembers = [
-  // ... [Keep your existing allMembers array here] ...
-];
-
 var lstMember = [], parent = [], equal = [], rec = [];
 var cmp1, cmp2, head1, head2, nrec;
 var numQuestion, initialTotalSize, currentTotalActiveMembers, finishSize, finishFlag;
@@ -301,12 +296,12 @@ function initList(){
   let activeMembersIndices = allMembers
     .map((member, index) => member.isExcluded ? -1 : index)
     .filter(index => index !== -1);
-    
+
   if (activeMembersIndices.length < 2) {
       document.getElementById("battleNumber").innerHTML = "Not enough members to sort!";
       if (activeMembersIndices.length === 1) {
           const winner = allMembers[activeMembersIndices[0]];
-          document.getElementById("resultField").innerHTML = 
+          document.getElementById("resultField").innerHTML =
             `<h2>🏆 최종 선택 🏆</h2>
              <div class="member-card" style="width:300px; margin:auto;">
                ${getMemberCardHTML(winner.id, 'result')}
@@ -322,20 +317,20 @@ function initList(){
       finishFlag = 1;
       return;
   }
-  
-  lstMember = []; 
+
+  lstMember = [];
   parent = [];
-  equal = []; 
+  equal = [];
   rec = [];
   let n = 0;
-  lstMember[n] = [...activeMembersIndices]; 
+  lstMember[n] = [...activeMembersIndices];
   parent[n] = -1;
-  
+
   // FIXED: Better estimate of total comparisons needed
   const activeCount = activeMembersIndices.length;
   initialTotalSize = Math.ceil(activeCount * Math.log2(activeCount));
   totalComparisons = 0; // Reset comparison counter
-  
+
   n++;
   for (let i = 0; i < lstMember.length; i++) {
     if (lstMember[i].length >= 2) {
@@ -346,8 +341,8 @@ function initList(){
       parent[n++] = i;
     }
   }
-  
-  currentTotalActiveMembers = activeMembersIndices.length; 
+
+  currentTotalActiveMembers = activeMembersIndices.length;
   for (let i = 0; i < allMembers.length; i++) equal[i] = -1;
   for (let i = 0; i < allMembers.length; i++) rec[i] = 0;
   nrec = 0;
@@ -355,14 +350,14 @@ function initList(){
   cmp2 = lstMember.length - 1;
   head1 = 0;
   head2 = 0;
-  
+
   numQuestion = 1;
   finishFlag = 0;
-  advanceHeadsToFirstValid(); 
+  advanceHeadsToFirstValid();
 }
 
 function advanceHeadsToFirstValid() {
-    if (cmp1 < 0 || finishFlag) return; 
+    if (cmp1 < 0 || finishFlag) return;
     while (head1 < lstMember[cmp1].length && allMembers[lstMember[cmp1][head1]].isExcluded) {
         head1++;
     }
@@ -373,64 +368,64 @@ function advanceHeadsToFirstValid() {
 
 function sortList(flag, excludedMemberOriginalIndex = -1){
   if (finishFlag) return;
-  
+
   let choice1 = -1, choice2 = -1;
   if (excludedMemberOriginalIndex !== -1) {
     allMembers[excludedMemberOriginalIndex].isExcluded = true;
-    currentTotalActiveMembers--; 
-    
-    if (lstMember[cmp1][head1] === excludedMemberOriginalIndex) { 
-      flag = 1; 
-    } else if (lstMember[cmp2][head2] === excludedMemberOriginalIndex) { 
-      flag = -1; 
+    currentTotalActiveMembers--;
+
+    if (lstMember[cmp1][head1] === excludedMemberOriginalIndex) {
+      flag = 1;
+    } else if (lstMember[cmp2][head2] === excludedMemberOriginalIndex) {
+      flag = -1;
     }
   }
-  
+
   // FIXED: Count actual comparisons made by user
   if (flag !== undefined && cmp1 >= 0 && head1 < lstMember[cmp1].length && head2 < lstMember[cmp2].length) {
     totalComparisons++;
   }
-  
+
   choice1 = lstMember[cmp1][head1];
   choice2 = lstMember[cmp2][head2];
-  
-  if (flag < 0) { 
+
+  if (flag < 0) {
     rec[nrec++] = choice1;
     head1++;
-    while (equal[rec[nrec-1]] != -1 && head1 < lstMember[cmp1].length) { 
+    while (equal[rec[nrec-1]] != -1 && head1 < lstMember[cmp1].length) {
         if(allMembers[lstMember[cmp1][head1]].isExcluded) { head1++; continue; }
         rec[nrec++] = lstMember[cmp1][head1++];
     }
-  } else if (flag > 0) { 
+  } else if (flag > 0) {
     rec[nrec++] = choice2;
     head2++;
      while (equal[rec[nrec-1]] != -1 && head2 < lstMember[cmp2].length) {
         if(allMembers[lstMember[cmp2][head2]].isExcluded) { head2++; continue; }
         rec[nrec++] = lstMember[cmp2][head2++];
     }
-  } else { 
+  } else {
     rec[nrec++] = choice1; head1++;
     while (equal[rec[nrec-1]] != -1 && head1 < lstMember[cmp1].length) {
         if(allMembers[lstMember[cmp1][head1]].isExcluded) { head1++; continue; }
         rec[nrec++] = lstMember[cmp1][head1++];
     }
-    
-    equal[rec[nrec-1]] = choice2; 
-    
+
+    equal[rec[nrec-1]] = choice2;
+
     rec[nrec++] = choice2; head2++;
     while (equal[rec[nrec-1]] != -1 && head2 < lstMember[cmp2].length) {
         if(allMembers[lstMember[cmp2][head2]].isExcluded) { head2++; continue; }
         rec[nrec++] = lstMember[cmp2][head2++];
     }
   }
-  
+
   while (head1 < lstMember[cmp1].length && allMembers[lstMember[cmp1][head1]].isExcluded) {
     head1++;
   }
   while (head2 < lstMember[cmp2].length && allMembers[lstMember[cmp2][head2]].isExcluded) {
     head2++;
   }
-  
+
   if (head1 < lstMember[cmp1].length && head2 == lstMember[cmp2].length) {
     while (head1 < lstMember[cmp1].length) {
       if (!allMembers[lstMember[cmp1][head1]].isExcluded) {
@@ -446,29 +441,29 @@ function sortList(flag, excludedMemberOriginalIndex = -1){
       head2++;
     }
   }
-  
+
   if (head1 == lstMember[cmp1].length && head2 == lstMember[cmp2].length) {
-    for (let i=0; i < nrec; i++) { 
+    for (let i=0; i < nrec; i++) {
       lstMember[parent[cmp1]][i] = rec[i];
     }
     lstMember[parent[cmp1]].length = nrec;
-    lstMember.pop(); lstMember.pop(); 
+    lstMember.pop(); lstMember.pop();
     cmp1 -= 2; cmp2 -= 2;
     head1 = 0; head2 = 0;
-    
-    for(let i = 0; i < allMembers.length; i++) rec[i] = 0; 
+
+    for(let i = 0; i < allMembers.length; i++) rec[i] = 0;
     nrec = 0;
-    if (cmp1 >= 0) { 
+    if (cmp1 >= 0) {
        advanceHeadsToFirstValid();
     }
   }
-  
-  if (cmp1 < 0 || currentTotalActiveMembers < 2) { 
+
+  if (cmp1 < 0 || currentTotalActiveMembers < 2) {
     // FIXED: Use actual comparisons for progress calculation
     let progress = initialTotalSize > 0 ? Math.floor(totalComparisons * 100 / initialTotalSize) : 100;
     if (progress > 100) progress = 100;
     document.getElementById("battleNumber").innerHTML = "Battle No."+(numQuestion-1)+"<br>"+ progress +"% sorted.";
-    showResult(); 
+    showResult();
     finishFlag = 1;
   } else {
     showImage();
@@ -477,13 +472,13 @@ function sortList(flag, excludedMemberOriginalIndex = -1){
 
 function handleExclude(originalMemberIndex, side) {
   if (finishFlag) return;
-  
+
   let leftCandidateIndex = lstMember[cmp1][head1];
   let rightCandidateIndex = lstMember[cmp2][head2];
   if (originalMemberIndex === leftCandidateIndex) {
-      sortList(1, originalMemberIndex); 
+      sortList(1, originalMemberIndex);
   } else if (originalMemberIndex === rightCandidateIndex) {
-      sortList(-1, originalMemberIndex); 
+      sortList(-1, originalMemberIndex);
   } else {
       console.error("Excluded member not in current battle pair.");
       return;
@@ -497,7 +492,7 @@ function showResult(){
   str += "<tr><th>순위</th><th>이름</th></tr>";
   let ranking = 1, sameRank = 1;
   // Ensure lstMember[0] exists and is an array before filtering
-  const finalActiveMembers = (lstMember && lstMember.length > 0 && Array.isArray(lstMember[0])) 
+  const finalActiveMembers = (lstMember && lstMember.length > 0 && Array.isArray(lstMember[0]))
                              ? lstMember[0].filter(idx => !allMembers[idx].isExcluded)
                              : [];
   if (finalActiveMembers.length === 0) {
@@ -510,9 +505,9 @@ function showResult(){
         let nextMemberOriginalIndex = finalActiveMembers[i+1];
         if (equal[memberOriginalIndex] === nextMemberOriginalIndex && !allMembers[memberOriginalIndex].isExcluded && !allMembers[nextMemberOriginalIndex].isExcluded) {
           sameRank++;
-        } else { 
-          ranking += sameRank; 
-          sameRank = 1; 
+        } else {
+          ranking += sameRank;
+          sameRank = 1;
         }
       }
     }
@@ -531,26 +526,26 @@ function showResult(){
 function showImage(){
   if (finishFlag) return;
   advanceHeadsToFirstValid();
-  
+
    if (head1 >= lstMember[cmp1].length && head2 >= lstMember[cmp2].length && cmp1 >=0 ) {
-      sortList(0); 
+      sortList(0);
       return;
    }
-   if (cmp1 >=0 && head1 >= lstMember[cmp1].length) { 
+   if (cmp1 >=0 && head1 >= lstMember[cmp1].length) {
         while(head2 < lstMember[cmp2].length) {
             if (!allMembers[lstMember[cmp2][head2]].isExcluded) rec[nrec++] = lstMember[cmp2][head2];
             head2++;
         }
-        sortList(0); return; 
+        sortList(0); return;
    }
-   if (cmp1 >=0 && head2 >= lstMember[cmp2].length) { 
+   if (cmp1 >=0 && head2 >= lstMember[cmp2].length) {
         while(head1 < lstMember[cmp1].length) {
             if (!allMembers[lstMember[cmp1][head1]].isExcluded) rec[nrec++] = lstMember[cmp1][head1];
             head1++;
         }
-        sortList(0); return; 
+        sortList(0); return;
    }
-   
+
   if ((currentTotalActiveMembers < 2 || (cmp1 <0)) && !finishFlag) {
      // FIXED: Use actual comparisons for progress calculation
      let progress = initialTotalSize > 0 ? Math.floor(totalComparisons * 100 / initialTotalSize) : 100;
@@ -560,13 +555,13 @@ function showImage(){
      finishFlag = 1;
      return;
   }
-  
+
   // FIXED: Use actual comparisons for progress calculation
   let progress = initialTotalSize > 0 ? Math.floor(totalComparisons * 100 / initialTotalSize) : 0;
   if (progress > 100) progress = 100;
   document.getElementById("battleNumber").innerHTML =
     "Battle No." + numQuestion + "<br>" + progress + "% sorted.";
-    
+
   let member1_idx = lstMember[cmp1][head1];
   let member2_idx = lstMember[cmp2][head2];
   document.getElementById("leftField").innerHTML = getMemberCardHTML(member1_idx, 'left');
@@ -591,7 +586,7 @@ function getMemberCardHTML(originalMemberIndex, side_or_context) {
       ${member.nameStr}
     </a>
   </span>`;
-  
+
   let cardHTML = `
     <div class="member-card">
       <div class="img-box" id="img-box-${side_or_context}-${originalMemberIndex}" onclick="cycleImage(${originalMemberIndex}, '${side_or_context}')">
@@ -614,11 +609,11 @@ function getMemberCardHTML(originalMemberIndex, side_or_context) {
 }
 
 function cycleImage(originalMemberIndex, side_or_context) {
-  if (finishFlag && (side_or_context === 'left' || side_or_context === 'right')) return; 
+  if (finishFlag && (side_or_context === 'left' || side_or_context === 'right')) return;
   const member = allMembers[originalMemberIndex];
-  if (!member || !member.images || member.images.length <= 1) return; 
+  if (!member || !member.images || member.images.length <= 1) return;
   member.currentImageIndex = (member.currentImageIndex + 1) % member.images.length;
-  
+
   const newImageSrc = member.images[member.currentImageIndex];
   const newDisplayUrl = member.imageDisplayUrls[member.currentImageIndex];
   const imgElement = document.getElementById(`image-${side_or_context}-${originalMemberIndex}`);
@@ -628,27 +623,55 @@ function cycleImage(originalMemberIndex, side_or_context) {
 }
 
 window.onload = function() {
-    const ENABLE_RANDOM = false; 
-    const RANDOM_SEED = 45; 
-    
-    let initialOrder = allMembers.map(m => m.id); 
-    if (ENABLE_RANDOM && typeof seededRandom === 'function') { 
+    const ENABLE_RANDOM = false;
+    const RANDOM_SEED = 45;
+
+    let initialOrder = allMembers.map(m => m.id);
+    if (ENABLE_RANDOM && typeof seededRandom === 'function') {
         shuffleArray(initialOrder); // Replace with shuffleArrayWithSeed if you implement it
     } else {
         shuffleArray(initialOrder);
     }
-    
+
     const shuffledAllMembersObjects = initialOrder.map(id => {
         // Find the member object by id from the original allMembers array
         return allMembers.find(m => m.id === id);
     });
-    
+
     // Replace allMembers with the shuffled version
     // Important: This assumes allMembers was defined with stable `id` properties from 0 to length-1 initially
     allMembers = shuffledAllMembersObjects;
-    initList(); 
-    if (!finishFlag) { 
-        showImage(); 
+    initList();
+    if (!finishFlag) {
+        showImage();
     }
 };
 </script>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center;">
+<table id="mainTable">
+  <tr>
+     <td id="battleNumber" colspan="3">Loading...</td> 
+  </tr>
+  <tr>
+    <td id="leftField"></td>
+    <td style="width: 150px; vertical-align: middle;"> 
+      <div class="middleField" style="margin-bottom: 10px;" onclick="if(finishFlag==0)sortList(0);">🤢 둘 다 개별로</div>
+      <div class="middleField" onclick="if(finishFlag==0)sortList(0);">🔥 둘 다 꽤나 가능</div>
+    </td>
+    <td id="rightField"></td>
+  </tr>
+</table>
+<br><br>
+<div id="resultField" style="text-align:center;">
+  <p>
+    <font size="3">
+      <div>후보 사진 클릭 시 다른 이미지를 볼 수 있음 (이미지가 여럿인 경우)</div>
+      <div>"제외🗑️" 버튼을 누르면 해당 후보는 추후 아예 삭제됨</div>
+      <div>둘 다 가능/별로 버튼의 기능은 동일함 (무승부처리)</div>
+      <div><b>주의:</b> 이 페이지는 모바일에서 최적화되어 있지 않음. PC에서 이용하는 것을 추천함.</div>
+    </font>
+  </p>
+</div>
+</body>
+</html>
