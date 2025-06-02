@@ -70,8 +70,8 @@ body {
 }
 
 .img-box {
-  width: 300px; 
-  height: 300px; 
+  width: 400px; 
+  height: 400px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -650,7 +650,7 @@ function getMemberCardHTML(originalMemberIndex, side_or_context) {
     cardHTML += `
       <div class="button-container">
         <button onclick="sortList(${voteFlag})" class="vote-button">선택</button>
-        <button onclick="handleExclude(${originalMemberIndex}, '${side_or_context}')" class="exclude-button">제외</button>
+        <button onclick="handleExclude(${originalMemberIndex}, '${side_or_context}')" class="exclude-button">제외🗑️</button>
       </div>
     `;
   }
@@ -723,8 +723,10 @@ window.onload = function() {
 
 <br><br>
 <div id="resultField" style="text-align:center;">
-  <p><font size="5">이상형월드컵 V2.1</font></p>
-  <p><font size="5">후보를 클릭하면 다른 이미지를 볼 수 있습니다 (설정된 경우). "제외" 버튼으로 싫은 후보를 뺄 수 있습니다.</font></p>
+  <p><font size="3">전부 zazisu여요</font></p>
+  <p><font size="2">후보 사진 클릭 시 다른 이미지를 볼 수 있음 (이미지가 여럿인 경우)</font></p>
+  <p><font size="2">"제외🗑️" 버튼을 누르면 해당 후보는 추후 아예 삭제됨</font></p>
+  <p><font size="2">둘 다 가능/별로 버튼의 기능은 동일함 (무승부처리)</font></p>
 </div>
 
 </body>
